@@ -56,15 +56,15 @@ AddEventHandler('dodi_flags:use:toggle', function(flag)
     local coords = GetEntityCoords(playerPed)
     local x, y, z = table.unpack(coords)
 
-    flagProp = CreateObject(GetHashKey(flagConfig.prop_pole), x, y, z + 0.2, true, true, true)
-    eagleProp = CreateObject(GetHashKey(flagConfig.prop_eagle), x, y, z + 0.2, true, true, true)
-    propFlag = CreateObject(GetHashKey(flagConfig.prop_flag), x, y, z + 0.2, true, true, true)
+    flagProp = CreateObject(GetHashKey(flagConfig.prop_pole), x, y, z + 0.2, true, false, false)
+   -- eagleProp = CreateObject(GetHashKey(flagConfig.prop_eagle), x, y, z + 0.2, true, false, false)
+    propFlag = CreateObject(GetHashKey(flagConfig.prop_flag), x, y, z + 0.2, true, false, false)
 
     -- Attach the flag to the post
     AttachEntityToEntity(propFlag, flagProp, 0, flagConfig.attach_coords_flag[1], flagConfig.attach_coords_flag[2], flagConfig.attach_coords_flag[3], flagConfig.attach_rot_flag[1], flagConfig.attach_rot_flag[2], flagConfig.attach_rot_flag[3], true, true, false, true, 1, true)
 
     -- Attach the eagle pendulum to the post
-    AttachEntityToEntity(eagleProp, flagProp, 0, flagConfig.attach_coords_eagle[1], flagConfig.attach_coords_eagle[2], flagConfig.attach_coords_eagle[3], flagConfig.attach_rot_eagle[1], flagConfig.attach_rot_eagle[2], true, true, false, true, 1, true)
+   -- AttachEntityToEntity(eagleProp, flagProp, 0, flagConfig.attach_coords_eagle[1], flagConfig.attach_coords_eagle[2], flagConfig.attach_coords_eagle[3], flagConfig.attach_rot_eagle[1], flagConfig.attach_rot_eagle[2], true, true, false, true, 1, true)
 
     -- Attach the post to the right hand of the player
     local boneIndexRightHand = GetPedBoneIndex(playerPed, 11316) -- Right -hand bone id
